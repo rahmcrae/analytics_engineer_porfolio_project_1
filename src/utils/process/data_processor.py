@@ -33,15 +33,11 @@ class DataProcessor:
         else:
             raise ValueError("Unsupported geographical level")
 
-        # Construct the full file path
-        # file_path = os.path.join("..", filename)
+        # Construct the full file path        
         file_path = filename
 
         # Read the CSV file into a DataFrame
         df = pd.read_csv(file_path)
-
-        # Filter the DataFrame based on the geo_level
-        # filtered_df = df[df['Available_Geographies'].astype(str).str.contains(self.geo_level, case=False)]
 
         # Extract unique values from the 'Variable' column
         variables = df['Variable'].unique().tolist()
