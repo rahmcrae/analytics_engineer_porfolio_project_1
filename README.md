@@ -17,4 +17,5 @@ have docker running to execute the following & run `aws sso login` prior
 ## to run locally
 make local-run
 ```
-![census-ingestion](https://github.com/rahmcrae/analytics_engineer_porfolio_project_1/assets/63305557/18908cdf-3e45-4443-a09a-9a720e013cf7)
+![census-ingestion](https://github.com/rahmcrae/analytics_engineer_porfolio_project_1/assets/63305557/34f281bf-8d75-48ff-82cd-fd54768fc871)
+
