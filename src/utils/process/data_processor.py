@@ -16,7 +16,6 @@ class DataProcessor:
         self.session = boto3.Session()
         self.s3_client = self.session.client('s3')
         self.bucket_name = os.getenv("BUCKET_NAME")
-        self.base_path = os.getenv("BASE_PATH")
         self.api_key = os.getenv("CENSUS_API_KEY")
         self.year = os.getenv('YEAR', datetime.datetime.now().year)
         self.logger = logging.getLogger(__name__)
@@ -90,7 +89,7 @@ class DataProcessor:
 
         # Save to s3
         timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-        s3_path = f"{self.base_path}/{self.year}/{self.geo_level}/{timestamp}/{self.geo_level}_data.json"
+        s3_path = f"{self.year}/{self.geo_level}/{timestamp}/{self.geo_level}_data.json"
         json_data = df.to_json(orient="records")
         self.s3_client.put_object(Bucket=self.bucket_name, Key=s3_path, Body=json_data)
         self.logger.info(f"Saved {len(df)} rows to S3: {s3_path}")
