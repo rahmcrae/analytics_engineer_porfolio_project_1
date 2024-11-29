@@ -89,7 +89,7 @@ class DataProcessor:
 
         # Save to s3
         timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-        s3_path = f"{self.year}/{self.geo_level}/{timestamp}/{self.geo_level}_data.json"
+        s3_path = f"CENSUS_YEAR={self.year}/{self.geo_level}/{timestamp}/{self.geo_level}_data.json"
         json_data = df.to_json(orient="records")
         self.s3_client.put_object(Bucket=self.bucket_name, Key=s3_path, Body=json_data)
         self.logger.info(f"Saved {len(df)} rows to S3: {s3_path}")
