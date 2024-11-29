@@ -13,7 +13,4 @@ COPY pyproject.toml poetry.lock* ./
 RUN poetry install --no-dev
 COPY /src .
 
-# Set year for census data
-ENV YEAR=2022
-
 CMD ["python3",  "app.py"]

@@ -17,7 +17,7 @@ class DataProcessor:
         self.s3_client = self.session.client('s3')
         self.bucket_name = os.getenv("BUCKET_NAME")
         self.api_key = os.getenv("CENSUS_API_KEY")
-        self.year = os.getenv('YEAR', datetime.datetime.now().year)
+        self.year = os.getenv('YEAR')
         self.logger = logging.getLogger(__name__)
         self.base_url = "https://api.census.gov/data/"
 
